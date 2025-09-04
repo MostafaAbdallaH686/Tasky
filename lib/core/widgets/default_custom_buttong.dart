@@ -16,6 +16,7 @@ class DefaultCustomButtong extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        height: AppWidthHeight.persantageOfHeight((50 / 812) * 100),
         padding: EdgeInsets.symmetric(
           horizontal: AppWidthHeight.persantageOfWidth((10 / 375) * 100),
         ),

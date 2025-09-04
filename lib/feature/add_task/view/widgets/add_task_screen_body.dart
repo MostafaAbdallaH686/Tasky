@@ -49,7 +49,6 @@ class AddTaskScreenBody extends StatelessWidget {
                             title: Text("Pick from Gallery"),
                             onTap: () {
                               AppRoute.navigateBack();
-
                               cubit.pickImageFromGallery();
                             },
                           ),
@@ -58,7 +57,6 @@ class AddTaskScreenBody extends StatelessWidget {
                             title: Text("Take a Photo"),
                             onTap: () {
                               AppRoute.navigateBack();
-
                               cubit.pickImageFromCamera();
                             },
                           ),
@@ -68,11 +66,15 @@ class AddTaskScreenBody extends StatelessWidget {
                   },
                   child: Container(
                     width: double.infinity,
-                    height: AppWidthHeight.persantageOfHeight((56 / 812) * 100),
+                    // Dynamic height: bigger if image is selected
+                    height: cubit.pickedImage == null
+                        ? AppWidthHeight.persantageOfHeight((56 / 812) * 100)
+                        : AppWidthHeight.persantageOfHeight((240 / 812) * 100),
                     decoration: BoxDecoration(
                       color: AppLightColor.white,
                       borderRadius: BorderRadius.circular(
-                          AppWidthHeight.persantageOfWidth((12 / 375) * 100)),
+                        AppWidthHeight.persantageOfWidth((12 / 375) * 100),
+                      ),
                       border: Border.all(color: AppLightColor.greyBorder),
                     ),
                     child: cubit.pickedImage == null
@@ -82,32 +84,39 @@ class AddTaskScreenBody extends StatelessWidget {
                               children: [
                                 AppSvgImage.showSvgImage(path: AppIcon.timage),
                                 SizedBox(
-                                    width: AppWidthHeight.persantageOfWidth(
-                                        (8 / 375) * 100)),
+                                  width: AppWidthHeight.persantageOfWidth(
+                                    (8 / 375) * 100,
+                                  ),
+                                ),
                                 Text(
-                                    textScaler: TextScaler.linear(
-                                      AppWidthHeight.persantageOfWidth(
-                                          (1 / 375) * 100),
+                                  textScaler: TextScaler.linear(
+                                    AppWidthHeight.persantageOfWidth(
+                                      (1 / 375) * 100,
                                     ),
-                                    AppString.image,
-                                    style: AppTextStyle.regular19),
+                                  ),
+                                  AppString.image,
+                                  style: AppTextStyle.regular19,
+                                ),
                               ],
                             ),
                           )
                         : ClipRRect(
                             borderRadius: BorderRadius.circular(
-                                AppWidthHeight.persantageOfWidth(
-                                    (12 / 375) * 100)),
+                              AppWidthHeight.persantageOfWidth(
+                                  (12 / 375) * 100),
+                            ),
                             child: Image.file(
                               cubit.pickedImage!,
                               width: double.infinity,
-                              fit: BoxFit.cover,
+                              height: double.infinity,
+                              fit: BoxFit.contain,
                             ),
                           ),
                   ),
                 );
               },
             ),
+
             SizedBox(
               height: AppWidthHeight.persantageOfHeight((16 / 812) * 100),
             ),
