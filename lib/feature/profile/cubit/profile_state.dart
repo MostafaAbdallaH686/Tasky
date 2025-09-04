@@ -1,4 +1,4 @@
-import 'package:to_do_app/core/model/user_model.dart';
+import 'package:to_do_app/core/shared/user_model.dart';
 
 abstract class ProfileState {}
 

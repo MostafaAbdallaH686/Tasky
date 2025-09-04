@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:to_do_app/core/dio/dio_exception.dart';
-import 'package:to_do_app/core/model/user_model.dart';
+import 'package:to_do_app/core/shared/user_model.dart';
 import 'package:to_do_app/core/helper/api_helper.dart';
 import 'package:to_do_app/core/helper/api_endpoint.dart';
 

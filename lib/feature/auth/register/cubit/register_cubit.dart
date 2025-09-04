@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/core/function/app_delay.dart';
-import 'package:to_do_app/feature/auth/register/data/register_repo.dart';
+import 'package:to_do_app/feature/auth/register/data/repo/register_repo.dart';
 import 'package:to_do_app/feature/auth/register/cubit/register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {

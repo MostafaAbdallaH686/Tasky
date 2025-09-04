@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:to_do_app/core/cache/cache_helper.dart';
 import 'package:to_do_app/core/cache/shared_preferenece_key.dart';
 import 'package:to_do_app/core/dio/dio_exception.dart';
-import 'package:to_do_app/core/model/user_model.dart';
+import 'package:to_do_app/core/shared/user_model.dart';
 import 'package:to_do_app/core/helper/api_endpoint.dart';
 import 'package:to_do_app/core/helper/api_helper.dart';
 import 'package:to_do_app/core/shared/user_service.dart';

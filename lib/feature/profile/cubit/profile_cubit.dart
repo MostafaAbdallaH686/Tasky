@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:to_do_app/core/model/user_model.dart';
-import 'package:to_do_app/feature/profile/data/profile_repo.dart';
+import 'package:to_do_app/core/shared/user_model.dart';
+import 'package:to_do_app/feature/profile/data/repo/profile_repo.dart';
 import 'package:to_do_app/feature/profile/cubit/profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
