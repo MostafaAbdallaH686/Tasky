@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:to_do_app/core/cache/cache_helper.dart';
 import 'package:to_do_app/core/theme/app_theme_data.dart';
-import 'package:to_do_app/features/on_baording/logopage.dart';
+import 'package:to_do_app/feature/onboarding/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Tasky',
       theme: AppThemeData.lightThemeData,
-      home: SplashPage(),
+      home: SplashScreen(),
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:to_do_app/features/auth/login/data/model/login_model.dart';
+import 'package:to_do_app/feature/auth/login/data/model/login_model.dart';
 
 class UserService {
   UserService._();
