@@ -48,3 +48,8 @@ class RegisterPickImage extends RegisterState {
   @override
   List<Object?> get props => [];
 }
+
+class RegisterPhoneValidationState extends RegisterState {
+  @override
+  List<Object?> get props => [];
+}

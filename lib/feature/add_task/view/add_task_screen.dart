@@ -13,7 +13,7 @@ class AddTaskScreen extends StatelessWidget {
         create: (context) => AddTaskCubit(),
         child: Scaffold(
           appBar: CustomMyAppBar(title: "Add new task"),
-          body: AddTaskScreenBody(),
+          body: const AddTaskScreenBody(),
         ));
   }
 }

@@ -13,6 +13,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   GlobalKey<FormState> globalKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   bool isPasswordVisible = false;
+  String? phoneError;
+
   String? phoneNumber;
   TextEditingController displayNameController = TextEditingController();
   TextEditingController experienceYearsController = TextEditingController();
@@ -38,6 +40,26 @@ class RegisterCubit extends Cubit<RegisterState> {
       return "please enter name !";
     }
     return null;
+  }
+
+  void validatePhone(String phone) {
+    phoneNumber = phone;
+
+    final digitsOnly = phone.replaceAll(RegExp(r'\D'), '');
+    final digitsWithoutCountryCode = digitsOnly.replaceFirst('20', '');
+
+    if (digitsWithoutCountryCode.isEmpty) {
+      phoneError = 'Phone number is required';
+    } else if (digitsWithoutCountryCode.length < 7) {
+      phoneError = 'Please enter a valid phone number';
+    } else {
+      phoneError = null;
+    }
+    emit(RegisterPhoneValidationState());
+  }
+
+  bool isValidPhone(String phone) {
+    return phone.length >= 10;
   }
 
   String? passwordValidator(String? value) {

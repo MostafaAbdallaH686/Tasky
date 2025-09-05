@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Tasky',
       theme: AppThemeData.lightThemeData,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
