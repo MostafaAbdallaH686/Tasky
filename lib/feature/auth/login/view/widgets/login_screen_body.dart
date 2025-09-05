@@ -8,7 +8,6 @@ import 'package:to_do_app/core/function/app_width_height.dart';
 import 'package:to_do_app/core/theme/app_light_color.dart';
 import 'package:to_do_app/core/theme/app_text_style.dart';
 import 'package:to_do_app/core/utils/app_image.dart';
-import 'package:to_do_app/core/utils/app_radius.dart';
 import 'package:to_do_app/core/utils/app_string.dart';
 import 'package:to_do_app/core/widgets/custom_circle_progress_inicator.dart';
 import 'package:to_do_app/core/widgets/default_custom_buttong.dart';
@@ -90,7 +89,7 @@ class LoginScreenBody extends StatelessWidget {
                                           (10 / 375) * 100)),
                                 ),
                                 enabledBorder: OutlineInputBorder(
-                                  borderRadius: AppRadius.buttonRaduis,
+                                  borderRadius: BorderRadius.circular(15),
                                   borderSide: BorderSide(
                                       color: AppLightColor.greyBorder),
                                 ),
@@ -109,7 +108,7 @@ class LoginScreenBody extends StatelessWidget {
                                   Icon(Icons.keyboard_arrow_down_outlined),
                               dropdownIconPosition: IconPosition.trailing,
                               dropdownDecoration: BoxDecoration(
-                                borderRadius: AppRadius.buttonRaduis,
+                                borderRadius: BorderRadius.circular(15),
                               ),
                               initialCountryCode: 'EG',
                               onChanged: (phone) {

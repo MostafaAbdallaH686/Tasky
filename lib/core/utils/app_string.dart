@@ -61,28 +61,7 @@ abstract class AppString {
   static const String kSave = "Save";
   static const String kUpdate = "Update";
 
-  // profile
-  static const String kUpdateProfile = "Update Profile";
-  static const String kChangePassword = "Change Password";
-  static const String kLogOut = "Log Out";
-  // Details
-  static const String detailsTitle = "Grocery Shopping App";
-  static const String detailsdesc =
-      "This application is designed for super shops. By using this application they can enlist all their products in one place and can deliver. Customers will get a one-stop solution for their daily shopping.";
-
-  // settings
-
-  static const String settings = "Settings";
-  static const String language = "Language";
-
-  // change password
-
-  static const String kOldPassword = "Old Password";
-  static const String kNewPassword = "New Password";
-
   // snackbar
   static const String kError = "Error";
   static const String kSuccess = "Success";
-  static const String kchangePasswordSuccess = "change password success";
-  static const String kupdateprofilesuccess = "update profile success";
 }

@@ -49,11 +49,6 @@ class EditTaskCubit extends Cubit<EditTaskState> {
     }
   }
 
-  OutlineInputBorder outlineInputBorder() => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Colors.grey),
-      );
-
   void initializeWithTask(TasksModel task) {
     titleController.text = task.title;
     descriptionController.text = task.desc;
@@ -72,10 +67,14 @@ class EditTaskCubit extends Cubit<EditTaskState> {
     required String currentImage,
     bool showLoader = false,
   }) async {
-    if (showLoader) emit(EditTaskLoading());
+    if (showLoader) {
+      if (isClosed) return;
+      emit(EditTaskLoading());
+    }
 
     if (!globalKey.currentState!.validate()) {
       autovalidateMode = AutovalidateMode.always;
+      if (isClosed) return;
       emit(EditTaskError(errMessage: "Please fill in all fields."));
       return;
     }
@@ -84,10 +83,12 @@ class EditTaskCubit extends Cubit<EditTaskState> {
 
     if (pickedImage != null) {
       final uploadResult = await repo.uploadImage(pickedImage!);
+      if (isClosed) return;
+
       uploadResult.fold(
         (err) {
+          if (isClosed) return;
           emit(EditTaskError(errMessage: err));
-          return;
         },
         (path) => imagePath = path,
       );
@@ -103,10 +104,17 @@ class EditTaskCubit extends Cubit<EditTaskState> {
     );
 
     final result = await repo.updateTask(taskId: taskId, task: taskModel);
+    if (isClosed) return;
+
     result.fold(
-      (error) => emit(EditTaskError(errMessage: error)),
+      (error) {
+        if (isClosed) return;
+        emit(EditTaskError(errMessage: error));
+      },
       (_) {
+        if (isClosed) return;
         emit(EditTaskSuccess());
+        //  Optionally navigate back to home screen , there is no button
         AppRoute.navigateToAndNoBack(HomeScreen());
       },
     );

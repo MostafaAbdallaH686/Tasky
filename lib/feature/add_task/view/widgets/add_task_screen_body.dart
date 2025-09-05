@@ -221,9 +221,21 @@ class AddTaskScreenBody extends StatelessWidget {
                         decoration: InputDecoration(
                           fillColor: AppLightColor.homegreyContainer,
                           filled: true,
-                          border: cubit.outlineInputBorder(),
-                          enabledBorder: cubit.outlineInputBorder(),
-                          focusedBorder: cubit.outlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide:
+                                BorderSide(color: AppLightColor.greyBorder),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide:
+                                BorderSide(color: AppLightColor.greyBorder),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide:
+                                BorderSide(color: AppLightColor.greyBorder),
+                          ),
                           contentPadding: EdgeInsets.symmetric(
                             horizontal: AppWidthHeight.persantageOfWidth(
                                 (12 / 375) * 100),

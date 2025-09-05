@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:to_do_app/core/function/image_compress.dart';
-import 'package:to_do_app/core/theme/app_light_color.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:to_do_app/core/utils/app_radius.dart';
 import 'package:to_do_app/feature/add_task/data/repo/add_task_repo.dart';
 part 'add_task_state.dart';
 
@@ -83,10 +81,6 @@ class AddTaskCubit extends Cubit<AddTaskState> {
     }
   }
 
-  OutlineInputBorder outlineInputBorder() => OutlineInputBorder(
-        borderRadius: AppRadius.buttonRaduis,
-        borderSide: BorderSide(color: AppLightColor.greyBorder),
-      );
   // Submit
   void onTap() async {
     emit(AddTaskLoading());

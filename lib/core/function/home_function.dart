@@ -42,16 +42,14 @@ double getStatusContainerwidth(String status) {
 
 // Status text color
 Color getStatusTextColor(String status) {
-  switch (status.toLowerCase()) {
-    case 'waiting':
-      return AppLightColor.statusWaiting;
-    case 'inprogress':
-      return AppLightColor.statusInprogress;
-    case 'finished':
-      return AppLightColor.statusFinished;
-    default:
-      return Colors.black;
-  }
+  const Map<String, Color> colorMap = {
+    'waiting': AppLightColor.statusWaiting,
+    'inprogress': AppLightColor.statusInprogress,
+    'finished': AppLightColor.statusFinished,
+  };
+
+  final key = status.toLowerCase().replaceAll(RegExp(r'\s+'), '');
+  return colorMap[key] ?? Colors.black;
 }
 
 // Flag icon based on priority
